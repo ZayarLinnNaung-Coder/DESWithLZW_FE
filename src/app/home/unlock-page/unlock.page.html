@@ -1,0 +1,26 @@
+<div class="main-content ion-padding-horizontal">
+
+    <div class="goBackBtnContainer" routerLink="">
+        <div class="goBackBtn">
+            <img src="../../../assets/icon/log-out.svg" alt="">
+        </div>
+    </div>
+
+    <section class="decrypt-input-section">
+        <p>Enter your key</p>
+        <input type="text" #key>
+        <p>Enter your source</p>
+        <textarea rows="5" #message></textarea>
+        <input type="button" value="Decrypt" (click)="decryptMessage(key.value, message.value)">
+    </section>
+
+    <section class="decrypt-output-section">
+
+        <p>Decrypt Result</p>
+        <textarea rows="7" [(ngModel)]="desResponse"></textarea>
+
+        <p>Decompress Result</p>
+        <textarea rows="7" [(ngModel)]="lzwResponse"></textarea>
+
+    </section>
+</div>

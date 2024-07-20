@@ -1,0 +1,17 @@
+<div class="main-content ion-padding-horizontal">
+
+    <div class="goBackBtnContainer" routerLink="">
+        <div class="goBackBtn">
+            <img src="../../../assets/icon/log-out.svg" alt="">
+        </div>
+    </div>
+
+    <section class="encrypt-input-section">
+        <p>Enter your key</p>
+        <input type="text" #key>
+        <p>Enter your source</p>
+        <input type="file" #fileInput>
+        <input type="button" value="Encrypt" (click)="encryptMessage(key.value)">
+    </section>
+    
+</div>

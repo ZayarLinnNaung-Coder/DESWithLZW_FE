@@ -1,0 +1,42 @@
+.decrypt-input-section{
+    textarea{
+        width: 100%;
+    }
+
+    input[type="text"]{
+        width: 100%;
+    }
+
+    input[type="file"]{
+        border: 0;
+        margin-bottom: 20px;
+    }
+
+    input[type="button"]{
+        width: 100%;
+        color: white;
+        background-color: #1f4287 !important;
+    }
+}
+
+.decrypt-output-section{
+    margin-top: 20px;
+    background-color: #fafafa99;
+    padding: 15px;
+
+    textarea{
+        width: 100%;
+    }
+
+}
+
+.main-content{
+    width: 100%;
+    height: 100vh;
+    background-color: #cabbe9;
+    overflow: scroll;
+}
+
+input, textarea{
+    background-color: #fafafa99 !important;
+}
