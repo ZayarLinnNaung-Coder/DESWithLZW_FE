@@ -1,3 +1,7 @@
+<div class="alert-card" *ngIf="invalidKeyLength">
+    <span>Key Length Must Be 8</span>
+</div>
+
 <div class="main-content ion-padding-horizontal">
 
     <div class="goBackBtnContainer" routerLink="">
@@ -9,18 +13,24 @@
     <section class="encrypt-input-section">
         <p>Enter your key</p>
         <input type="text" #key>
-        <p>Enter your source</p>
+        <div class="sourceEnter">
+            <p>Enter your source</p>
+            <img src="../../../assets/images/file.png" width="24px" (click)="txtFileInput.click()">
+            <input type="file" #txtFileInput hidden accept=".txt" (change)="insertFileData(txtFileInput.files)">
+        </div>
         <textarea rows="5" #message></textarea>
-        <input type="button" value="Encrypt" (click)="encryptMessage(key.value, message.value)">
+        <input type="button" value="Compress" (click)="compressMessage(message.value)">
     </section>
 
     <section class="encrypt-output-section">
 
         <p>Compress Result</p>
-        <textarea rows="7" [(ngModel)]="lzwResponse"></textarea>
+        <textarea rows="5" [(ngModel)]="lzwResponse"></textarea>
+
+        <input type="button" value="Encrypt" [style.background-color]="enableEncryptBtn? '#1f4287 !important': '#33333355 !important'" (click)="encryptMessage(key.value)">
 
         <p>Encrypt Result</p>
-        <textarea rows="7" [(ngModel)]="desResponse"></textarea>
+        <textarea rows="5" [(ngModel)]="desResponse"></textarea>
 
     </section>
 </div>

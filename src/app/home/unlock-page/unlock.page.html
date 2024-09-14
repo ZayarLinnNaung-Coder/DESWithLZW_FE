@@ -17,10 +17,12 @@
     <section class="decrypt-output-section">
 
         <p>Decrypt Result</p>
-        <textarea rows="7" [(ngModel)]="desResponse"></textarea>
+        <textarea rows="5" [(ngModel)]="desResponse"></textarea>
+
+        <input type="button" value="Encrypt" [style.background-color]="enableDecompressBtn? '#1f4287 !important': '#33333355 !important'" (click)="decompressMessage(key.value)">
 
         <p>Decompress Result</p>
-        <textarea rows="7" [(ngModel)]="lzwResponse"></textarea>
+        <textarea rows="5" [(ngModel)]="lzwResponse"></textarea>
 
     </section>
 </div>

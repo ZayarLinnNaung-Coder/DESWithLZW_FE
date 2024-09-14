@@ -12,7 +12,19 @@ export class UnlockPage{
   lzwResponse: string = ''
   desResponse: string = ''
 
+  enableDecompressBtn = false
+
   constructor(private http: HttpClient){}
+
+  decompressMessage(message: string) {
+
+    let data = new FormData();
+    data.append('message', this.desResponse)
+    this.http.post(UrlConstants.BASE_URL + "/lzw/decompress/message", data).subscribe((response: any) => {
+      this.lzwResponse = response.message
+    })
+
+  }
   
   decryptMessage(key: string, message: string) {
 
@@ -22,15 +34,7 @@ export class UnlockPage{
 
     this.http.post(UrlConstants.BASE_URL + "/des/decrypt/message", data).subscribe((response: any) => {
       this.desResponse = response.message
-      console.log("DES RESPONSE")
-      console.log(this.desResponse)
-
-      let data = new FormData();
-      data.append('message', this.desResponse)
-      this.http.post(UrlConstants.BASE_URL + "/lzw/decompress/message", data).subscribe((response: any) => {
-        this.lzwResponse = response.message
-      })
-
+      this.enableDecompressBtn = true
     })
   }
 
